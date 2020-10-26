@@ -1,0 +1,17 @@
+.nav-link.active {
+    font-weight: bold;
+}
+
+.card {
+    width: 200%;
+    margin: 10px;
+}
+.createPost {
+    float: right;
+}
+
+.post {
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+}
