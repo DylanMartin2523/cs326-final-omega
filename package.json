@@ -2,7 +2,6 @@
     "name": "globalwarming",
     "type": "module",
     "scripts": {
-        "start": "server/server.js",
         "lint": "eslint ./"
     },
     "devDependencies": {
