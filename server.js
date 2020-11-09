@@ -14,7 +14,7 @@ app.listen(port, () =>
 );
 
 
-this.server.use('/', express.static('client'));
+app.use('/', express.static('client'));
 
 app.get('/', (req, res) => {
     res.send("OOF");
