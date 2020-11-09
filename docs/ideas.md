@@ -9,5 +9,3 @@
 ![](createpost.png)
 ![](createcomment.png)
 
-
-
