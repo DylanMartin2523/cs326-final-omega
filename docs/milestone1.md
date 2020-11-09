@@ -13,9 +13,8 @@
 ![](post.png)
 ![](createpost.png)
 ![](createcomment.png)
-# Feedback
-![](feedback-page.PNG)
-# Work Breakdown
+
+# Labor Division
 Dylan: Forum pages
 Brent: Feedback page
 Robin: Data page
