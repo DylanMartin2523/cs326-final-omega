@@ -1,0 +1,15 @@
+.nav-link.active{
+    font-weight: bold;
+}
+
+.form-control.sm{
+    width: 50%;
+}
+
+.form-control.lg{
+    padding-bottom: 200px;
+}
+
+.container.top{
+    margin-top: -115px;
+}
