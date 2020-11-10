@@ -22,7 +22,7 @@
 ![](feedback-in-console.JPG)
 
 ## Front Page
-![](front-page.JPG)
+![](front-page.PNG)
 
 # Heroku
 https://global-warming-cs326.herokuapp.com/
