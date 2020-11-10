@@ -1,4 +1,4 @@
-getData('http://localhost:8080/forum-comments');
+getData('https://global-warming-cs326.herokuapp.com/forum-comments');
 
 async function getData(url) {
     let res = await fetch(url, {
