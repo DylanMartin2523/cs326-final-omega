@@ -13,6 +13,11 @@
 ![](MainForum2.png)
 ![](Comments.png)
 
+## Feedback Page
+![](feedback-page.JPG)
+![](feedback-in-console.JPG)
+
+
 # Heroku
 https://global-warming-cs326.herokuapp.com/
 
