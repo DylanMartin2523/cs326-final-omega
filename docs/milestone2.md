@@ -1,4 +1,5 @@
 # API 
+
 ### Forum Endpoints
 /forum pulls all existing forum posts and displays them on the page.
 /forum-comments/<forumIDNum> pulls all existing comments for a specific forum post and displays the comments.
@@ -7,6 +8,9 @@
   
 ### Feedback Endpoints
 /feedback takes in the data from the form and clears it when it finishes. It then pushes it to the server and can be read on the localhost/feedback.
+
+### Front Page Endpoints
+/posts retrieves images from forum posts and displays them on the front page
 
 # Screenshots
 ## Main Forum Page
@@ -17,6 +21,8 @@
 ![](feedback-page.JPG)
 ![](feedback-in-console.JPG)
 
+## Front Page
+![](front-page.JPG)
 
 # Heroku
 https://global-warming-cs326.herokuapp.com/
