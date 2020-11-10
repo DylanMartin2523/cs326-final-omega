@@ -1,4 +1,4 @@
-getData('http://localhost:8080/forum');
+getData('https://global-warming-cs326.herokuapp.com/forum');
 
 async function getData(url) {
     let res = await fetch(url, {
@@ -27,7 +27,7 @@ async function getData(url) {
         cardBody.appendChild(text);
 
         let toComments = document.createElement('a');
-        toComments.href = res[x].link;
+        toComments.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html'
         toComments.className = 'btn btn-link comment';
         toComments.innerText = 'Comments (' + res[x].comments + ')';
         cardBody.appendChild(toComments);

@@ -10,7 +10,7 @@ button.addEventListener("click", function() {
 
     let toSend = {'userName': userName, 'body': body, 'title': title, 'id': id}
 
-    let url = 'http://localhost:8080/createPost'
+    let url = 'https://global-warming-cs326.herokuapp.com/createPost'
 
     sendData(url, JSON.stringify(toSend));
 })
