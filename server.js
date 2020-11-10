@@ -6,6 +6,10 @@ import bodyparser from 'body-parser';
 const app = express();
 const port = process.env.PORT || 8080; 
 
+let fdata = {};
+let fadata = new Array();
+let count = 0;
+
 app.use(bodyparser.json());
 app.use(cors());
 app.listen(port, () =>
@@ -20,7 +24,16 @@ app.get('/', (req, res) => {
 
 app.post('/feedback',(req,res) => {
     const name = req.body;
+    if(fadata[count] !== name){
+        fadata[count] = name;
+        count++;
+    }
+    fdata = JSON.stringify(fadata);
     console.log(name);
+});
+
+app.get('/feedback',(req,res) => {
+    res.send(fdata);
 });
 
 
