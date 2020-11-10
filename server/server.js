@@ -20,6 +20,19 @@ app.listen(port, () =>
 
 app.use('/', express.static('client'));
 
+app.get('/posts', postGenerator);
+
+function postGenerator(req, res) {
+    let posts = [];
+    for (let i = 0; i < 4; i++) {
+        let post = {};
+        post.title = faker.lorem.sentence();
+        post.image= faker.random.image();
+        posts.push(post);
+    }
+    res.send(JSON.stringify(posts));
+};
+
 app.post('/feedback',(req,res) => {
     const name = req.body;
     if(fadata[count] !== name){

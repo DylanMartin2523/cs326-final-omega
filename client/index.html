@@ -1,16 +1,108 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Global Warming</title>
-        <script type="module" src="createComment.js" defer></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" 
-            integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-    
-        <h1> HELLO </h1>
-      
-    </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Global Warming Info Hub</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <link rel="stylesheet" href="_style.css">
+  <script type="module" src="_main.js" defer></script>
+</head>
+
+<body class="container">
+
+  <div class="row">
+    <div class="container">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+        <div class="sidebar-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Data <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">
+                Forum
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                Feedback
+              </a>
+            </li>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1><br>Global Warming Visualization</h1>
+    <div class="container">
+      <h4><br><br>Global temperature increase since 1800 in C°, out of 2° maximum:</h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 60%"
+          aria-valuenow="1.2" aria-valuemin="0" aria-valuemax="2">1.2</div>
+      </div>
+      <h4>GHG atmospheric concentration in ppm:</h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: 60%"
+          aria-valuenow="413.32" aria-valuemin="0" aria-valuemax="688.8">413.32</div>
+      </div>
+      <h4>GHG emissions since 2009 in billions of tons, out of 1 trillion tons maximum:</h4>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped bg-info" role="progressbar" style="width: 38.656%"
+          aria-valuenow="386.56 billion" aria-valuemin="0" aria-valuemax="1000">386.56</div>
+      </div>
+      <div class="row">
+        <div class="col-sm">
+          <h4><br><br>Effects of current temperature increase:</h4>
+          <p>
+            - Unpredictable and extreme weather<br>
+            - Glaciers melting<br>
+            - Coral reefs bleaching<br>
+          </p>
+        </div>
+        <div class="col-sm">
+          <h4>What the world will be like with 2°C warming:</h4>
+          "The world will be a lot drier, which will impact economies, agriculture, infrastructure, and weather
+          patterns. Rising temperatures will damage ecosystems and species that cannot adapt, including those in coral
+          reefs and Arctic areas. Low-lying coastal regions and small islands worldwide are at risk of disappearing as
+          sea levels rise due to the Greenland ice sheet and Arctic ice melting at continuously faster rates. 2 degrees
+          celsius could determine the existence of whole nations." (Popular Science) [3]
+          "Substantial species extinctions, large risks to global and regional food security," and an inability to work
+          outside—and live—in some areas of the world." (Popular Science) [3]
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class= "row">
+    <div class="container" id="img-container">
+      <h4>Pictures of current effects from our forum:</h4>
+      <div class="row d-block">
+        <div id='img0' class="box col-md-8 col-lg-6 float-left B"></div>
+        <div id='img1' class="box col-md-4 col-lg-3 float-left G"></div>
+        <div id='img2' class="box col-md-4 col-lg-3 float-left G"></div>
+        <div id='img3' class="box col-md-12 col-lg-6 float-left O"></div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="row">
+    <h6>
+      <br><br>
+      References:<br><br>
+
+      1. Data provided by NOAA Global Monitoring Laboratory, Boulder, Colorado, USA
+      (https://esrl.noaa.gov/gmd/)<br><br>
+
+      2. Nick Bondarev, https://www.pexels.com/photo/cold-glacier-iceberg-melting-4905091<br><br>
+
+      3. https://www.popsci.com/what-happens-if-earth-gets-2-degrees-warmer/<br><br>
+    </h6>
+  </div>
+</body>
+
 </html>
