@@ -23,3 +23,4 @@ https://global-warming-cs326.herokuapp.com/
 
 # Labor Division
 Dylan: All forum related stuff
+Brent: All feedback related stuff
