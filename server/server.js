@@ -2,6 +2,31 @@ import express from 'express';
 import cors from 'cors';
 import bodyparser from 'body-parser';
 import faker from 'faker';
+import pkg from 'mongodb';
+const { MongoClient } = pkg;
+
+const url = 'mongodb+srv://Main:main@cluster0.oafaf.mongodb.net/Cluster0?retryWrites=true&w=majority'
+const client = new MongoClient(url);
+const dbName = 'Cluster0'
+let data = {'test': 'data'};
+let name = 'test';
+sendToServer(data, name);
+async function sendToServer(data, name) {
+    try {
+         await client.connect();
+         console.log("Connected correctly to server");
+         const db = client.db(dbName);
+
+         // Use the collection "people"
+         const col = db.collection(name);                                                                                                                                                        
+
+         // Insert a single document, wait for promise so we can read it back
+        await col.insertOne(data);
+
+        } catch (err) {
+            console.log(err.stack);
+        }
+}
 
 const app = express();
 const port = process.env.PORT || 8080; 
