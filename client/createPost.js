@@ -1,16 +1,19 @@
-let button = document.getElementById('submit');
-button.addEventListener("click", function() {
-    let userName = document.getElementById('screenName').value;
 
+
+let submitButton = document.getElementById('submit');
+submitButton.addEventListener("click", function() {
     let title = document.getElementById('title').value;
 
     let body = document.getElementById('body').value;
 
-    let id = 544545454;
+    let id = window.localStorage.getItem('currUser')
 
-    let toSend = {'userName': userName, 'body': body, 'title': title, 'id': id}
+    let toSend = {'userid': id, 'body': body, 'title': title}
 
-    let url = 'https://global-warming-cs326.herokuapp.com/createPost'
+    // let url = 'https://localhost:8080/createPost?id=' + id.toString();
+    let url = 'http://localhost:8080/createPost';
+
+    // let url = 'https://global-warming-cs326.herokuapp.com/createPost?id=' + id.toString();
 
     sendData(url, JSON.stringify(toSend));
 })
