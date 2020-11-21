@@ -1,7 +1,7 @@
 import pkg from 'mongodb';
 const { MongoClient } = pkg;
 import * as mini from '../server/miniCrypt.js';
-import * as secrets from './secrets.js';
+// import * as secrets from './secrets.js';
 
 // let secrets;
 let password;
