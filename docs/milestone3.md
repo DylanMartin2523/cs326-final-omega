@@ -29,3 +29,6 @@ Posts Posts {
 ## Divison of labor
 Dylan: Fourm implementation
 Robin: "Data" page implementation
+
+## Link to app
+https://global-warming-cs326.herokuapp.com/
