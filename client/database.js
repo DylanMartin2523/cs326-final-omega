@@ -153,3 +153,20 @@ export async function getFromServer(dbName, collec, callback) {
             console.log(err.stack);
         }
 }
+
+export async function addFeedback(data, callback){
+    try{
+        await client.connect();
+        console.log("Connected correctly to server");
+        const db = clientdb('feedback');
+
+        const feed = db.collection('feedback');
+        feed.insertOne(data,function (err){
+            console.log(data._id);
+            let id= data._id;
+            return callback(id);
+        })
+    }catch (err){
+        console.log(err.stack);
+    }
+}
