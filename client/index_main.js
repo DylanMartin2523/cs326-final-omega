@@ -40,7 +40,7 @@ async function getPosts() {
             document.getElementById(`col${Math.floor(i / 2) + 1}`).appendChild(card);
             let id = res[x]._id;
             card.addEventListener("click", () => {
-                location.replace('http://localhost:8080/forum-comments.html?id=' + id);
+                location.replace('https://global-warming-cs326.herokuapp.com/forum-comments.html?id=' + id);
             });
             res.splice(x, 1);
         }
@@ -49,7 +49,7 @@ async function getPosts() {
         
         
     }
-    getData('http://localhost:8080/forum');
+    getData('https://global-warming-cs326.herokuapp.com/forum');
   
      
 }
