@@ -114,8 +114,16 @@ function commentHandler(req, res, next) {
 
     let db = 'Posts';
     let col = 'Comments'
+    let id = req.query.id
     getFromServer(db, col, function(ans) {
-        res.send(ans);
+        let toSend = []
+        let parsed = JSON.parse(ans);
+        for (let x = 0; x < parsed.length; x++) {
+            if (parsed[x].postId === id) {
+                toSend.push(parsed[x])
+            }
+        }
+        res.send(toSend);
     })
     // let data = {};
 
