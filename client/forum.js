@@ -1,6 +1,6 @@
-// getData('https://global-warming-cs326.herokuapp.com/forum');
+getData('https://global-warming-cs326.herokuapp.com/forum');
 
-getData('http://localhost:8080/forum')
+// getData('http://localhost:8080/forum')
 
 async function getData(url) {
     let res = await fetch(url, {
@@ -29,9 +29,9 @@ async function getData(url) {
         cardBody.appendChild(text);
 
         let toComments = document.createElement('a');
-        // toComments.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html'
         let id = res[x]._id;
-        toComments.href = 'http://localhost:8080/forum-comments.html?id=' + id; 
+        toComments.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html?id=' + id;
+        // toComments.href = 'http://localhost:8080/forum-comments.html?id=' + id; 
         toComments.className = 'btn btn-link comment';
         toComments.innerText = 'Comments'
         cardBody.appendChild(toComments);
