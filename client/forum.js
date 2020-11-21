@@ -29,7 +29,6 @@ async function getData(url) {
         cardBody.appendChild(text);
 
         let toComments = document.createElement('a');
-        // toComments.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html'
         let id = res[x]._id;
         //toComments.href = 'http://localhost:8080/forum-comments.html?id=' + id; 
         toComments.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html?id=' + id; 
