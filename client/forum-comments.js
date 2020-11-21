@@ -2,12 +2,12 @@
 // const { response } = require("express");
 
 // getData('https://global-warming-cs326.herokuapp.com/forum-comments');
-let id = window.location.search.substring(4);
-let url = 'http://localhost:8080/forum-comments?id=' + id
+let forumID = window.location.search.substring(4);
+let url = 'http://localhost:8080/forum-comments?id=' + forumID
 getForumData(url)
 
 let createButton = document.getElementById('createComment');
-let butUrl = 'http://localhost:8080/createComment.html?id=' + id
+let butUrl = 'http://localhost:8080/createComment.html?id=' + forumID
 createButton.href = butUrl;
 
 
@@ -28,7 +28,7 @@ async function getForumData(url) {
     console.log(postRes);
     let index = 0;
     for (let x = 0; x < postRes.length; x++) {
-        if (postRes[x]._id === id) {
+        if (postRes[x]._id === forumID) {
             title.innerText = postRes[x].title
             body.innerText = postRes[x].body
             index = x;
@@ -39,11 +39,13 @@ async function getForumData(url) {
     let OPName = document.getElementById('OP')
 
     let OPURL = 'http://localhost:8080/users'
+    let username = ''
     let OPRes = await fetch(OPURL, {
     }).then(response => response.json());
     for (let x = 0; x < OPRes.length; x++) {
         if (OPRes[x]._id === postRes[index].userid) {
             OPName.innerText = OPRes[x].name;
+            username = OPRes[x].name;
         }
     }
     
@@ -61,8 +63,15 @@ async function getForumData(url) {
             }
             let card = makeCard(res[x].body, name, res[x]._id)
             comHolder.appendChild(card);
-            cardIds[res[x].id] = card; 
+            cardIds[res[x]._id] = card; 
         } else {
+            let name = '';
+            for (let i = 0; i < OPRes.length; i++) {
+                if (OPRes[i]._id === res[x].id) { 
+                    name = OPRes[i].name;
+                }
+            }
+            res[x].userName = name;
             children.push(res[x]);
         }
     }
@@ -73,12 +82,12 @@ function addChildComment(children, cardIds) {
     let kids = [];
     if (children.length === 0) return;
     for (let x = 0; x < children.length; x++) {
-        if (Object.keys(cardIds).includes(children[x].resTo.toString())) {
+        if (Object.keys(cardIds).includes(children[x].resTo)) {
             let toAppend = cardIds[children[x].resTo].getElementsByClassName('childCardHolder')[0]
-            let card = makeCard(children[x].body, children[x].userName);
+            let card = makeCard(children[x].body, children[x].userName, children[x]._id);
             toAppend.appendChild(card)
-            delete cardIds[children[x].resTo];
-            cardIds[children[x].id] = card;
+            // delete cardIds[children[x].resTo];
+            cardIds[children[x]._id] = card;
         } else {
             kids.push(children[x])
         }
@@ -99,7 +108,7 @@ function makeCard(body, userName, resTo) {
     respond.innerText = '↳';
     // respond.href = 'http://localhost:8080/createComment&id=' + id + '&resTo=' + resTo;
     respond.addEventListener('click', function() {
-        bod.appendChild(makeResponseCard(resTo))
+        bod.appendChild(makeResponseCard(resTo, userName))
     });
     bod.appendChild(respond);
 
@@ -119,7 +128,7 @@ function makeCard(body, userName, resTo) {
     return inner;
 }
 
-function makeResponseCard(resTo) {
+function makeResponseCard(resTo, userName) {
     console.log(resTo)
 
     let inner = document.createElement('div');
@@ -141,24 +150,35 @@ function makeResponseCard(resTo) {
     // submit.type = 'button';
     submit.innerText = 'Submit Comment'
     submit.className = 'btn btn-primary';
+    submit.id = 'submitContent'
     bod.appendChild(submit)
 
     submit.addEventListener('click', function() {
         let words = input.value;
         sendCommentData(resTo, words);
+        submit.remove()
+        inputDiv.remove();
+        inner.parentNode.appendChild(makeCard(words, userName, resTo))
+        inner.remove();
+        // resToCard(words);
     })
 
     return inner;
 } 
+
+function resToCard(words) {
+
+}
 
 function sendCommentData(resTo, body) {
     let link = 'http://localhost:8080/createComment'
 
     let currId = window.localStorage.getItem('currUser');
 
-    let toSend = {'id': currId, 'body': body, 'resTo': resTo, 'postId': id}
+    let toSend = {'id': currId, 'body': body, 'resTo': resTo, 'postId': forumID}
 
-    sendData(url, JSON.stringify(toSend));
+    sendData(link, JSON.stringify(toSend));
+
 }
 
 async function sendData(url, data) {

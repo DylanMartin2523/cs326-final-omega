@@ -13,6 +13,7 @@ button.addEventListener("click", function() {
     let url = 'http://localhost:8080/createComment'
 
     sendData(url, JSON.stringify(toSend));
+    location.href = 'http://localhost:8080/forum-comments.html?id=' + postId
 })
 
 async function sendData(url, data) {
