@@ -1,12 +1,14 @@
 async function getPosts() {
 
-    let response = await fetch('http://localhost:8080/posts');
-    let posts = await response.json();
-    console.log(posts);
-    for (let i = 0; i < 4; i++){
-        let img = document.createElement('img');
-        img.src = posts[i].image;
-        document.getElementById(`img${i}`).appendChild(img);
+    getData('https://global-warming-cs326.herokuapp.com/forum');
+    async function getData(url) {
+        let res = await fetch(url, {
+        }).then(response => response.json())
+    
+        for (let i = 0; i < 4; i++){
+            document.getElementById(`img${i}`).innertext = res[i].body;
+        }
+
     }
 }
 window.addEventListener('load', getPosts);

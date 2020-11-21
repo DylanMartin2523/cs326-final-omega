@@ -31,3 +31,5 @@ https://global-warming-cs326.herokuapp.com/
 Dylan: All forum related stuff
 
 Brent: All feedback related stuff
+
+Robin: All front page stuff

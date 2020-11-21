@@ -1,15 +1,17 @@
 // const { ReplSet } = require("mongodb");
 // const { response } = require("express");
 
-// getData('https://global-warming-cs326.herokuapp.com/forum-comments');
+//getData('https://global-warming-cs326.herokuapp.com/forum-comments');
 let forumID = window.location.search.substring(4);
-let url = 'https://global-warming-cs326.herokuapp.com/forum-comments$id=' + forumID;
-// let url = 'http://localhost:8080/forum-comments?id=' + forumID
+//let url = 'http://localhost:8080/forum-comments?id=' + forumID
+let url = 'https://global-warming-cs326.herokuapp.com/forum-comments?id=' + forumID
+
 getForumData(url)
 
 let createButton = document.getElementById('createComment');
-let butUrl = 'https://global-warming-cs326.herokuapp.com/createComment.html?id=' + forumID;
-// let butUrl = 'http://localhost:8080/createComment.html?id=' + forumID;
+//let butUrl = 'http://localhost:8080/createComment.html?id=' + forumID
+let butUrl = 'https://global-warming-cs326.herokuapp.com/createComment.html?id=' + forumID
+
 createButton.href = butUrl;
 
 
@@ -24,8 +26,9 @@ async function getForumData(url) {
     let body = document.getElementById('desc');
 
 
-    // let postURL = 'http://localhost:8080/forum'
+    //let postURL = 'http://localhost:8080/forum'
     let postURL = 'https://global-warming-cs326.herokuapp.com/forum'
+    
     let postRes = await fetch(postURL, {
     }).then(response => response.json());
     console.log(postRes);
@@ -41,8 +44,8 @@ async function getForumData(url) {
 
     let OPName = document.getElementById('OP')
 
-    // let OPURL = 'http://localhost:8080/users';
-    let OPURL = 'https://global-warming-cs326.herokuapp.com/users'
+    //let OPURL = 'http://localhost:8080/users'
+    let OPURL =  'https://global-warming-cs326.herokuapp.com/users'
     let username = ''
     let OPRes = await fetch(OPURL, {
     }).then(response => response.json());
@@ -175,9 +178,10 @@ function resToCard(words) {
 }
 
 function sendCommentData(resTo, body) {
-    // let link = 'http://localhost:8080/createComment'
+    //let link = 'http://localhost:8080/createComment'
     let link = 'https://global-warming-cs326.herokuapp.com/createComment'
 
+    
     let currId = window.localStorage.getItem('currUser');
 
     let toSend = {'id': currId, 'body': body, 'resTo': resTo, 'postId': forumID}

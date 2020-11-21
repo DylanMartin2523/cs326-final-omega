@@ -1,48 +1,21 @@
 .nav-link.active {
     font-weight: bold;
 }
-.main {
-    width: 200%;
-    margin: 10px;
+.title{
+    justify-content: center;
 }
-.comment {
-    float: right;
-}
-.card-text {
-    color: slategray
-}
-.post {
-    float: right;
-    margin-right: 10px;
-    margin-top: 10px;
-}
-.title {
-    margin: 10px;
-}
-.back {
-    margin: 10px;
-    float: right;
-}
-.comment {
-    float: right;
-    margin: 10px;
-}
-.inner {
-    margin: 10px;
-    border-left: black;
-    border-style: solid;
-    border-top: none;
-    border-bottom: none;
-    border-right: none;
-}
-.main-text {
-    color: black;
-    font-weight: normal;
-}
-.main-title {
-    margin: 10px;
-} 
-.main-no-border {
-    border: black;
-    margin: 10px;
-}
+
+.box {
+    width: 30%;
+    height: 200px;
+  }
+  
+img {
+    width: 100%;
+    height: 100%;
+  }
+
+.row > div {border:3px solid white}
+.B {height:200px}
+.G {height:100px}
+.O {height:100px}

@@ -6,7 +6,9 @@ document.getElementById("submit").addEventListener('click', function() {
     let name = username.value;
     let pass = password.value;
     let data = {'name': name, 'pass': pass}
-    let url = 'http://localhost:8080/createUser';
+    //let url = 'http://localhost:8080/createUser';
+    let url = 'https://global-warming-cs326.herokuapp.com/createUser';
+    
     window.localStorage.setItem('username', name);
     
 

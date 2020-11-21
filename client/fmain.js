@@ -15,7 +15,8 @@ function saveFeedback(){
     let email = document.getElementById("emailEntry").value;
     let feedback = document.getElementById("feedbackEntry").value;
     let data = {'name': name, 'email': email, 'feedback': feedback};
-    postData('http://localhost:8080/feedback', JSON.stringify(data));
+    //postData('http://localhost:8080/feedback', JSON.stringify(data));
+    postData('https://global-warming-cs326.herokuapp.com/feedback', JSON.stringify(data));
 }
 
 async function postData(url, data){
