@@ -6,7 +6,7 @@ async function getPosts() {
         }).then(response => response.json())
     
         for (let i = 0; i < 4; i++){
-            `img${i}`.innertext = res[i].body;
+            document.getElementById(`img${i}`).innertext = res[i].body;
         }
 
     }
