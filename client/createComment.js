@@ -1,12 +1,14 @@
+let postId = window.location.search.substring(4);
+let url = 'http://localhost:8080/createComments?id=' + postId
+
 let button = document.getElementById('submit');
 button.addEventListener("click", function() {
-    let userName = document.getElementById('screenName').value;
 
     let body = document.getElementById('body').value;
 
-    let id = 544545454;
+    let id = window.localStorage.getItem('currUser');
 
-    let toSend = {'userName': userName, 'body': body, 'id': id}
+    let toSend = {'id': id, 'body': body, 'resTo': 0, 'postId': postId}
 
     let url = 'http://localhost:8080/createComment'
 

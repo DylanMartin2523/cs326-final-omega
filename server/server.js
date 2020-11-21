@@ -8,7 +8,7 @@ import bodyparser from 'body-parser';
 import faker from 'faker';
 // const database = require('../client/database')
 // const minicrypt = require('./miniCrypt.js');
-import { addUser, sendToServer, getFromServer, addPost } from '../client/database.js';
+import { addUser, sendToServer, getFromServer, addPost, addComment } from '../client/database.js';
 
 
 const app = express();
@@ -68,12 +68,12 @@ app.post('/createUser', (req, res) => {
 
 });
 
-app.get('/forum', forumHandler);
-
 app.post('/createComment', (req, res) => {
-    const name = req.body
-    console.log(name);
-    res.end();
+    const data = req.body
+    console.log(data);
+    addComment(data, function(ans) {
+        res.send({'res': ans})
+    });
 });
 
 app.post('/createPost', (req, res) => {
@@ -88,59 +88,67 @@ function createUser(req, res) {
     // let users = getFromServer('Users')
 }
 
+app.get('/users', function(req, res) {
+    let name = 'Users';
+    getFromServer(name, name, function (ans) {
+        res.send(ans);
+    })
+})
+
+app.get('/forum', forumHandler);
+
 // Send random fourm data
 function forumHandler(req, res) {
     let forum = [];
     let name = 'Posts'
-    getFromServer(name, function (ans) {
+    getFromServer(name, name, function (ans) {
         // let temp = ans;
         res.send(ans);
     })
-    // for (let x = 0; x < 10; x++) {
-    //     let randFormObj = {};
-    //     randFormObj.id = faker.random.number();
-    //     randFormObj.userName = faker.internet.userName();
-    //     randFormObj.title = faker.lorem.sentence();
-    //     randFormObj.desc = faker.lorem.paragraph();
-    //     randFormObj.comments = faker.random.number();
-    //     randFormObj.link = 'http://127.0.0.1:5500/forum-comments.html';
-    //     forum.push(randFormObj);
-    // }
-    // res.send(JSON.stringify(forum));
 }
+
 
 app.get('/forum-comments', commentHandler);
 
-function commentHandler(req, res) {
-    let data = {};
+function commentHandler(req, res, next) {
 
-    data.op = {};
-    data.op.id = faker.random.number();
-    data.op.title = faker.lorem.sentence();
-    data.op.desc = faker.lorem.paragraph();
-    data.op.userName = faker.internet.userName();
+    let db = 'Posts';
+    let col = 'Comments'
+    getFromServer(db, col, function(ans) {
+        res.send(ans);
+    })
+    // let data = {};
 
-    data.comments = [];
-    let ids = [];
-    for (let x = 0; x < 5; x++) {
-        let temp = {};
-        temp.body = faker.lorem.paragraph();
-        temp.userName = faker.internet.userName();
-        temp.id = faker.random.number();
-        temp.resTo = 0;
-        data.comments.push(temp);
-        ids.push(temp.id);
-    }
+    // data.op = {};
+    // data.op.id = faker.random.number();
+    // data.op.title = faker.lorem.sentence();
+    // data.op.desc = faker.lorem.paragraph();
+    // data.op.userName = faker.internet.userName();
 
-    for (let x = 0; x < 5; x++) {
-        let temp = {};
-        temp.body = faker.lorem.paragraph();
-        temp.userName = faker.internet.userName();
-        temp.id = faker.random.number();
-        temp.resTo = ids[x];
-        data.comments.push(temp);
-        ids.push(temp.id);
-    }
+    // data.comments = [];
+    // let ids = [];
+    // for (let x = 0; x < 5; x++) {
+    //     let temp = {};
+    //     temp.body = faker.lorem.paragraph();
+    //     temp.userName = faker.internet.userName();
+    //     temp.id = faker.random.number();
+    //     temp.resTo = 0;
+    //     data.comments.push(temp);
+    //     ids.push(temp.id);
+    // }
+
+    // for (let x = 0; x < 5; x++) {
+    //     let temp = {};
+    //     temp.body = faker.lorem.paragraph();
+    //     temp.userName = faker.internet.userName();
+    //     temp.id = faker.random.number();
+    //     temp.resTo = ids[x];
+    //     data.comments.push(temp);
+    //     ids.push(temp.id);
+    // }
     
-    res.send(JSON.stringify(data));
+
+    // next();
+    // res.send(JSON.stringify(data));
+    // res.sendFile('forum-comments.html', { root: './client' }) 
 }

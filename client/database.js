@@ -10,6 +10,25 @@ const dbName = 'Cluster0'
 let data = {'test': 'data'};
 let name = 'test';
 
+
+export async function addComment(data, callback) {
+    try {
+        await client.connect();
+        console.log("Connected correctly to server");
+        const db = client.db('Posts');
+
+        // Use the collection "people"
+        const col = db.collection('Comments');
+        col.insertOne(data, function (err) {
+            console.log(data._id)
+            let id = data._id;
+            return callback(id)
+        })
+    } catch (err) {
+        console.log(err.stack);
+    }
+}
+
 export async function sendToServer(data, name) {
     try {
          await client.connect();
@@ -87,14 +106,13 @@ export async function addUser(data, callback) {
     }
 }
 
-export async function getFromServer(name, callback) {
+export async function getFromServer(dbName, collec, callback) {
     try {
         await client.connect();
         console.log("Connected correctly to server");
-        const db = client.db(name);
+        const db = client.db(dbName);
 
-        // Use the collection "people"
-        const col = db.collection(name);
+        const col = db.collection(collec);
 
         let myDoc = await col.find({})
         let temp = [];

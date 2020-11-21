@@ -46,3 +46,8 @@
     border: black;
     margin: 10px;
 }
+#commentInput {
+    resize: both;
+    width: 800px;
+    max-width: 1000px;
+}

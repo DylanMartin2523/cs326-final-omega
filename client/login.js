@@ -7,6 +7,7 @@ document.getElementById("submit").addEventListener('click', function() {
     let pass = password.value;
     let data = {'name': name, 'pass': pass}
     let url = 'http://localhost:8080/createUser';
+    window.localStorage.setItem('username', name);
     
 
     sendData(url, JSON.stringify(data));
