@@ -103,7 +103,7 @@ function forumHandler(req, res) {
     let name = 'Posts'
     getFromServer(name, name, function (ans) {
         // let temp = ans;
-        res.send(ans);
+        res.send(JSON.stringify(ans));
     })
 }
 
