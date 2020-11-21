@@ -1,6 +1,6 @@
 async function getPosts() {
 
-    getData('http://localhost:8080/forum');
+    getData('https://global-warming-cs326.herokuapp.com/forum');
     async function getData(url) {
         let res = await fetch(url, {
         }).then(response => response.json())
