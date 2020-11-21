@@ -11,6 +11,7 @@ button.addEventListener("click", function() {
 
     let toSend = {'id': id, 'body': body, 'resTo': 0, 'postId': postId}
 
+
     //let url = 'http://localhost:8080/createComment'
     let url = 'https://global-warming-cs326.herokuapp.com/createComment'
 
