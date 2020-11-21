@@ -103,7 +103,7 @@ function forumHandler(req, res) {
     let name = 'Posts'
     getFromServer(name, name, function (ans) {
         // let temp = ans;
-        res.send(JSON.stringify(ans));
+        res.send(ans);
     })
 }
 
@@ -125,38 +125,5 @@ function commentHandler(req, res, next) {
         }
         res.send(toSend);
     })
-    // let data = {};
 
-    // data.op = {};
-    // data.op.id = faker.random.number();
-    // data.op.title = faker.lorem.sentence();
-    // data.op.desc = faker.lorem.paragraph();
-    // data.op.userName = faker.internet.userName();
-
-    // data.comments = [];
-    // let ids = [];
-    // for (let x = 0; x < 5; x++) {
-    //     let temp = {};
-    //     temp.body = faker.lorem.paragraph();
-    //     temp.userName = faker.internet.userName();
-    //     temp.id = faker.random.number();
-    //     temp.resTo = 0;
-    //     data.comments.push(temp);
-    //     ids.push(temp.id);
-    // }
-
-    // for (let x = 0; x < 5; x++) {
-    //     let temp = {};
-    //     temp.body = faker.lorem.paragraph();
-    //     temp.userName = faker.internet.userName();
-    //     temp.id = faker.random.number();
-    //     temp.resTo = ids[x];
-    //     data.comments.push(temp);
-    //     ids.push(temp.id);
-    // }
-    
-
-    // next();
-    // res.send(JSON.stringify(data));
-    // res.sendFile('forum-comments.html', { root: './client' }) 
 }
