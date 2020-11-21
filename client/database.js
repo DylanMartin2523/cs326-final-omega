@@ -1,9 +1,18 @@
 import pkg from 'mongodb';
 const { MongoClient } = pkg;
 import * as mini from '../server/miniCrypt.js';
+import * as secrets from './secrets.js';
+
+// let secrets;
+let password;
+if (!process.env.PASSWORD) {
+    password = secrets.x.main;
+} else {
+	password = process.env.PASSWORD;
+}
 
 
-const url = 'mongodb+srv://Main:main@cluster0.oafaf.mongodb.net/Cluster0?retryWrites=true&w=majority'
+const url = 'mongodb+srv://Main:' + password + '@cluster0.oafaf.mongodb.net/Cluster0?retryWrites=true&w=majority'
 const client = new MongoClient(url);
 const dbName = 'Cluster0'
 
