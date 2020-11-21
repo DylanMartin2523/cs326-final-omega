@@ -27,4 +27,5 @@ Posts Posts {
 
 
 ## Divison of labor
-Dylan: Fourm implementation 
+Dylan: Fourm implementation
+Robin: "Data" page implementation
