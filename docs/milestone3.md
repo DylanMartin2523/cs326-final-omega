@@ -22,13 +22,19 @@ Posts Posts {
     title: String // title of post
 }
 
-
-
+Feedback Feedback{
+    _id: <ObjectID1>,
+    id: String, //feedback id
+    feed: String //The feedback body
+}
 
 
 ## Divison of labor
 Dylan: Fourm implementation
+
 Robin: "Data" page implementation
+
+Brent: Feedback Page implementation
 
 ## Link to app
 https://global-warming-cs326.herokuapp.com/
