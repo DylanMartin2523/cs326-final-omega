@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyparser from 'body-parser';
 import faker from 'faker';
+import { addFeedback, getFromServer } from './client/fdatabase';
 
 const app = express();
 const port = process.env.PORT || 8080; 
@@ -20,18 +21,21 @@ app.listen(port, () =>
 
 app.use('/', express.static('client'));
 
-app.post('/feedback',(req,res) => {
-    const name = req.body;
-    if(fadata[count] !== name){
-        fadata[count] = name;
-        count++;
-    }
-    fdata = JSON.stringify(fadata);
-    console.log(name);
-});
 
-app.get('/feedback',(req,res) => {
-    res.send(fdata);
+ app.post('/feedback', (req, res) => {
+     const feed = req.body;
+     console.log(feed);
+     addFeedback(feed, function(ans){
+         res.send({'res' : ans});
+     });
+ });
+
+
+app.get('/feedback', function(req,res) {
+    let feed = 'feedback';
+    getFromServer(feed, feed, function (ans){
+        res.send(ans);
+    });
 });
 
 
