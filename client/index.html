@@ -11,26 +11,44 @@
 </head>
 
 <body>
-    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-      <div class="sidebar-sticky pt-3">
-        <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
-              Data <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://global-warming-cs326.herokuapp.com/forum.html">
-              Forum
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://global-warming-cs326.herokuapp.com/feedback.html">
-              Feedback
-            </a>
-          </li>
-    </nav>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Global Warming Forum</a>
+    <ul class="navbar-nav ml-auto">
+        <form class="form-inline ml-2 ml-lg-0">
+            <input class="form-control ml-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </ul>
+</nav>   
 
+
+<div class="container-fluid">
+<div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+        <div class="sidebar-sticky pt-3">
+            <ul class="nav flex-column"> 
+            <li class="nav-item">
+                <a class="nav-link active" href="http://localhost:8080/index.html">
+                Data <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/forum.html">
+                Fourm
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/feedback.html">
+                Feedback
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/login.html">
+                Account
+                </a>
+            </li>
+        </nav> 
+<main role="main" class="col-md-9 ml-lg-auto col-lg-10" id="body">
   <div class="container">
     <h1><br>Global Warming Visualization</h1>
     <div class="container">
@@ -90,6 +108,7 @@
       3. https://www.popsci.com/what-happens-if-earth-gets-2-degrees-warmer/<br><br>
     </h6>
   </div>
+</main>
 </body>
 
 </html>
