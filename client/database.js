@@ -4,6 +4,7 @@ import * as mini from '../server/miniCrypt.js';
 // import * as secrets from './secrets.js';
 
 let secrets;
+let password;
 if (!process.env.PASSWORD) {
     password = secrets.x.main;
 } else {
