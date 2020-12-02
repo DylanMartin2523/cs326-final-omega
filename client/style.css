@@ -51,3 +51,13 @@
     width: 800px;
     max-width: 1000px;
 }
+.main-row {
+    justify-content: center;
+    margin-top: 20px;
+}
+.border-col {
+    border-right-style: solid;
+}
+.spinner-border {
+    margin-top: 10px;
+}

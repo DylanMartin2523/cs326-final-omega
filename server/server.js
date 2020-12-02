@@ -4,11 +4,9 @@ import express from 'express';
 import cors from 'cors';
 // const bodyparser = require('body-parser');
 import bodyparser from 'body-parser';
-// const faker = require('faker');
-import faker from 'faker';
 // const database = require('../client/database')
 // const minicrypt = require('./miniCrypt.js');
-import { addUser, sendToServer, getFromServer, addPost, addComment } from '../client/database.js';
+import { addUser, sendToServer, getFromServer, addPost, addComment, checkLogin } from '../client/database.js';
 
 
 const app = express();
@@ -65,7 +63,18 @@ app.post('/createUser', (req, res) => {
             res.send({'res': 'Username Taken'})
         }
     })
+});
 
+app.post('/login', (req, res) => {
+    let data = req.body;
+    checkLogin(data, function(ans) {
+        if (ans !== 'Username Invalid') {
+            let toSend = ans
+            res.send({'res': toSend})
+        } else {
+            res.send({'res': 'Username Invalid'})
+        }
+    })
 });
 
 app.post('/createComment', (req, res) => {

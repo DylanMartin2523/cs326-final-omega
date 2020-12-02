@@ -55,7 +55,7 @@ export default function() {
     @desc Validate a user password.
    */
   MiniCrypt.prototype.check = function(pw, salt, hash) {
-    return c.timingSafeEqual(c.pbkdf2Sync(pw, salt, this.its, this.keyL, this.digest), Buffer.from(hash, 'hex'));
+    return c.timingSafeEqual(c.pbkdf2Sync(pw, salt, 1e5, 64, 'sha256'), Buffer.from(hash, 'hex'));
   };
 
   return MiniCrypt;

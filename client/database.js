@@ -4,12 +4,12 @@ import * as mini from '../server/miniCrypt.js';
 // import * as secrets from './secrets.js';
 
 // let secrets;
-let password;
-if (!process.env.PASSWORD) {
-    password = secrets.x.main;
-} else {
-	password = process.env.PASSWORD;
-}
+let password = 'main';
+// if (!process.env.PASSWORD) {
+//     password = secrets.x.main;
+// } else {
+// 	password = process.env.PASSWORD;
+// }
 
 
 const url = 'mongodb+srv://Main:' + password + '@cluster0.oafaf.mongodb.net/Cluster0?retryWrites=true&w=majority'
@@ -113,6 +113,35 @@ export async function addUser(data, callback) {
     } catch (err) {
         console.log(err.stack);
     }
+}
+
+export async function checkLogin(data, callback) {
+    try {
+        await client.connect();
+        console.log("Connected correctly to server");
+        const db = client.db('Users');
+
+        const col = db.collection('Users');
+
+        let myDoc = await col.find({})
+        let temp = [];
+        await myDoc.forEach(function(doc) { 
+            temp.push(doc);
+        })
+        console.log(temp);
+        temp.forEach(function(doc) {
+            if (mini.default().prototype.check(data.pass, doc.salt, doc.pass)) {
+                console.log('MATCH')
+                console.log(doc)
+                return callback('Username Valid');
+            }
+        })
+
+        return callback('Username Invalid');
+
+        } catch (err) {
+            console.log(err.stack);
+        }
 }
 
 export async function getFromServer(dbName, collec, callback) {
