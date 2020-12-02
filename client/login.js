@@ -44,7 +44,7 @@ async function sendDataLogin(url, data) {
     }).then(response => response.json()).then(function(data) { 
         console.log(data);
         document.getElementById('loginSpinner').hidden = true;
-        if (data.res === 'Username Valid') {
+        if (data.res !== 'Username Invalid') {
             let goodText = document.getElementById('goodTextLogin');
             goodText.hidden = false;
             window.localStorage.setItem('currUser', data.res)

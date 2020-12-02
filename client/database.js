@@ -3,7 +3,6 @@ const { MongoClient } = pkg;
 import * as mini from '../server/miniCrypt.js';
 // import * as secrets from './secrets.js';
 
-let secrets;
 let password;
 if (!process.env.PASSWORD) {
     password = secrets.x.main;
@@ -133,7 +132,7 @@ export async function checkLogin(data, callback) {
             if (mini.default().prototype.check(data.pass, doc.salt, doc.pass)) {
                 console.log('MATCH')
                 console.log(doc)
-                return callback('Username Valid');
+                return callback(doc._id);
             }
         })
 
