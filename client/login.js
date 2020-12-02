@@ -25,7 +25,7 @@ document.getElementById("loginSubmit").addEventListener('click', function() {
     let pass = password.value;
     let data = {'name': name, 'pass': pass}
     // let url = 'http://localhost:8080/login';
-    let url = 'https://global-warming-cs326.herokuapp.com/createUser';
+    let url = 'https://global-warming-cs326.herokuapp.com/login';
     
     window.localStorage.setItem('username', name);
     document.getElementById('loginSpinner').hidden = false;
