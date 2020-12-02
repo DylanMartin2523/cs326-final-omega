@@ -19,8 +19,6 @@ async function getForumData(url) {
     let res = await fetch(url, {
     }).then(response => response.json());
 
-    
-
 
     let title = document.getElementById('title');
     let body = document.getElementById('desc');
@@ -119,7 +117,8 @@ function makeCard(body, userName, resTo) {
     respond.innerText = '↳';
     // respond.href = 'http://localhost:8080/createComment&id=' + id + '&resTo=' + resTo;
     respond.addEventListener('click', function() {
-        bod.appendChild(makeResponseCard(resTo, userName))
+        let user = window.localStorage.getItem('username')
+        bod.appendChild(makeResponseCard(resTo, user))
     });
     bod.appendChild(respond);
 
