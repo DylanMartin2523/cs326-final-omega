@@ -53,7 +53,11 @@ async function getForumData(url) {
         if (OPRes[x]._id === postRes[index].userid) {
             OPName.innerText = OPRes[x].name;
             username = OPRes[x].name;
+            break;
         }
+    }
+    if (username === '') {
+        username = '[deleted]'
     }
     
 
