@@ -212,5 +212,7 @@ async function deletePost() {
         let res = await fetch(link, {
         }).then(response => response.json());
         location.href = 'https://global-warming-cs326.herokuapp.com/forum.html'
+    } else {
+        
     }
 }
