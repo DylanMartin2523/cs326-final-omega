@@ -31,13 +31,35 @@ This page contains two text boxes and a submit post button. The text boxes recor
 This page has two sections. The first section allows the user to make a new account as long as the username is unique. This side has two text boxes, one for username and one for password as well as a button that allows the user to create an account. The second section allows the user to sign in providing their credentials are correct. This section has the same layout as the first section except for a 'Login' button instead of a 'Create Comment' button.
 ![](LoginSS.png)
 ## APIs
+#### /createUser
+Attempts to add user. Either responds with 'Username Taken' if the attempted username is taken or returns a userid that the user uses for authentication in other parts of the site.
+#### /login
+Checks if the provided credentials are valid and if they are it returns a userid that the user uses for authentication in other parts of the site. Otherwise sends back 'Username Invalid'.
+#### /createComment
+Sends comment data to database.
+#### /createPost
+Sends post data to the database.
+#### /users
+Returns database collection of users which includes userids, hashed passwords and salt.
+#### /forum
+Returns database collection of all posts. 
+#### /deletePost?id={postid}
+Removes post from database with id of postid.
+#### /forum-comments?id={postid}
+Returns forum post data which includes the post title and body and all comments.
 
 ## Database
+Users Users { _id: , name: String, // Username of user pass: String, // Password of user salt: String // Salt used for password }
 
+Posts Comments { _id: , id: String, // Commenter UserID body: String, // Body of comment resTo: String, // Comment id of parent comment '0' if no parent postId: String // id of the post }
+
+Posts Posts { _id: , userid: String, // Userid of poster body: String, // Body of post title: String // title of post }
+
+Feedback Feedback{ _id: , id: String, //feedback id feed: String //The feedback body }
 ## URL Routes/Mappings
 
 ## Authentication/Authorization
-
+This site uses mongodb so the password for database access is saved in the mongodb environment variables. When the user creates an account their password is salted and hashed using minicrypt. The hash and salt are then stored in the user data in the database. To authenticate a user when the user logs in the provided password is checked against the hash on the database. The server returns an id that is then saved in the localStorage so the user can be authorized for actions later.  
 ## Division of Labor
 
 ## Conclusion
