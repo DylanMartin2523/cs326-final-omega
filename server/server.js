@@ -1,11 +1,6 @@
-// const express = require('express'); 
 import express from 'express';
-// const cors = require('cors')
 import cors from 'cors';
-// const bodyparser = require('body-parser');
 import bodyparser from 'body-parser';
-// const database = require('../client/database')
-// const minicrypt = require('./miniCrypt.js');
 import { addUser, sendToServer, getFromServer, addPost, addComment, checkLogin, deleteFromServer } from '../client/database.js';
 
 
@@ -25,19 +20,6 @@ app.listen(port, () =>
 
 
 app.use('/', express.static('client'));
-
-app.get('/posts', postGenerator);
-
-function postGenerator(req, res) {
-    let posts = [];
-    for (let i = 0; i < 4; i++) {
-        let post = {};
-        post.title = faker.lorem.sentence();
-        post.image= faker.random.image();
-        posts.push(post);
-    }
-    res.send(JSON.stringify(posts));
-};
 
 app.post('/feedback',(req,res) => {
     const name = req.body;
@@ -92,12 +74,6 @@ app.post('/createPost', (req, res) => {
         res.send({'res': ans});
     });
 });
-
-function createUser(req, res) {
-    // let users = getFromServer('Users')
-}
-
-
 
 app.get('/users', function(req, res) {
     let name = 'Users';
