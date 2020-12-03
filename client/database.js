@@ -1,14 +1,14 @@
 import pkg from 'mongodb';
-const { MongoClient } = pkg;
+const { MongoClient, ObjectId } = pkg;
 import * as mini from '../server/miniCrypt.js';
 // import * as secrets from './secrets.js';
 
-let password;
-if (!process.env.PASSWORD) {
-    password = secrets.x.main;
-} else {
-	password = process.env.PASSWORD;
-}
+let password = 'main';
+// if (!process.env.PASSWORD) {
+//     password = secrets.x.main;
+// } else {
+// 	password = process.env.PASSWORD;
+// }
 
 
 const url = 'mongodb+srv://Main:' + password + '@cluster0.oafaf.mongodb.net/Cluster0?retryWrites=true&w=majority'
@@ -182,7 +182,29 @@ export async function getFromServer(dbName, collec, callback) {
         }
 }
 
-export async function addFeedback(data, callback){
+export async function deleteFromServer(dbName, collec, id, callback) {
+    try {
+        await client.connect();
+        console.log("Connected correctly to server");
+        const db = client.db(dbName);
+
+        const col = db.collection(collec);
+
+        let string = 'ObjectId("' + id + '")'
+        let myQuery = {'_id': string};
+        col.deleteOne({"_id": ObjectId(id)}, function(err, obj) {
+            if (err) throw err;
+        });
+
+        let res = 'doc deleted'
+        return callback(JSON.stringify(res));
+
+        } catch (err) {
+            console.log(err.stack);
+        }
+}
+
+export async function addFeedback(data, callback) {
     try{
         await client.connect();
         console.log("Connected correctly to server");

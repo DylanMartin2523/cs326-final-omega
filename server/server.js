@@ -6,7 +6,7 @@ import cors from 'cors';
 import bodyparser from 'body-parser';
 // const database = require('../client/database')
 // const minicrypt = require('./miniCrypt.js');
-import { addUser, sendToServer, getFromServer, addPost, addComment, checkLogin } from '../client/database.js';
+import { addUser, sendToServer, getFromServer, addPost, addComment, checkLogin, deleteFromServer } from '../client/database.js';
 
 
 const app = express();
@@ -97,6 +97,8 @@ function createUser(req, res) {
     // let users = getFromServer('Users')
 }
 
+
+
 app.get('/users', function(req, res) {
     let name = 'Users';
     getFromServer(name, name, function (ans) {
@@ -110,12 +112,17 @@ app.get('/forum', forumHandler);
 function forumHandler(req, res) {
     let forum = [];
     let name = 'Posts'
-    getFromServer(name, name, function (ans) {
+    getFromServer(name, name, function(ans) {
         // let temp = ans;
         res.send(ans);
     })
 }
 
+app.get('/deletePost', function(req, res) {
+    deleteFromServer('Posts', 'Posts', req.query.id, function(ans) {
+        res.send(ans);
+    })
+});
 
 app.get('/forum-comments', commentHandler);
 

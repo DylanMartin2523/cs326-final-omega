@@ -6,11 +6,12 @@ async function getData(url) {
     let res = await fetch(url, {
     }).then(response => response.json())
     let urlUsers = 'https://global-warming-cs326.herokuapp.com/users'
+    // let urlUsers = 'http://localhost:8080/users'
     let users = await fetch(urlUsers, { 
     }).then(response => response.json())
 
     console.log(res);
-    for (let x = 0; x < res.length; x++) {
+    for (let x = res.length - 1; x >= 0; x--) {
         let cardCol = document.getElementById('cardCol');
 
         let cardMain = document.createElement('div');
@@ -46,7 +47,7 @@ async function getData(url) {
 
         let toComments = document.createElement('a');
         let id = res[x]._id;
-        //toComments.href = 'http://localhost:8080/forum-comments.html?id=' + id; 
+        // toComments.href = 'http://localhost:8080/forum-comments.html?id=' + id; 
         toComments.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html?id=' + id; 
         
         toComments.className = 'btn btn-link comment';

@@ -3,16 +3,18 @@
 
 //getData('https://global-warming-cs326.herokuapp.com/forum-comments');
 let forumID = window.location.search.substring(4);
-//let url = 'http://localhost:8080/forum-comments?id=' + forumID
+// let url = 'http://localhost:8080/forum-comments?id=' + forumID
 let url = 'https://global-warming-cs326.herokuapp.com/forum-comments?id=' + forumID
 
 getForumData(url)
 
 let createButton = document.getElementById('createComment');
-//let butUrl = 'http://localhost:8080/createComment.html?id=' + forumID
+// let butUrl = 'http://localhost:8080/createComment.html?id=' + forumID
 let butUrl = 'https://global-warming-cs326.herokuapp.com/createComment.html?id=' + forumID
 
 createButton.href = butUrl;
+
+let forumOPID = '';
 
 
 async function getForumData(url) {
@@ -24,15 +26,15 @@ async function getForumData(url) {
     let body = document.getElementById('desc');
 
 
-    //let postURL = 'http://localhost:8080/forum'
+    // let postURL = 'http://localhost:8080/forum'
     let postURL = 'https://global-warming-cs326.herokuapp.com/forum'
     
     let postRes = await fetch(postURL, {
     }).then(response => response.json());
-    console.log(postRes);
     let index = 0;
     for (let x = 0; x < postRes.length; x++) {
         if (postRes[x]._id === forumID) {
+            forumOPID = postRes[x].userid;
             title.innerText = postRes[x].title
             body.innerText = postRes[x].body
             index = x;
@@ -42,7 +44,7 @@ async function getForumData(url) {
 
     let OPName = document.getElementById('OP')
 
-    //let OPURL = 'http://localhost:8080/users'
+    // let OPURL = 'http://localhost:8080/users'
     let OPURL =  'https://global-warming-cs326.herokuapp.com/users'
     let username = ''
     let OPRes = await fetch(OPURL, {
@@ -176,13 +178,9 @@ function makeResponseCard(resTo, userName) {
     return inner;
 } 
 
-function resToCard(words) {
-
-}
-
 function sendCommentData(resTo, body) {
-    //let link = 'http://localhost:8080/createComment'
-    let link = 'https://global-warming-cs326.herokuapp.com/createComment'
+    let link = 'http://localhost:8080/createComment'
+    // let link = 'https://global-warming-cs326.herokuapp.com/createComment'
 
     
     let currId = window.localStorage.getItem('currUser');
@@ -202,4 +200,17 @@ async function sendData(url, data) {
         'Accept': 'application/json'
         }
     }).then(response => response.json());
+}
+
+document.getElementById('deletePost').addEventListener('click', deletePost);
+
+async function deletePost() {
+    // let link = 'http://localhost:8080/deletePost?id=' + forumID;
+    let link = 'https://global-warming-cs326.herokuapp.com/deletePost?id=' + forumID;
+    console.log(forumOPID)
+    if (forumOPID === window.localStorage.getItem('currUser')) {
+        let res = await fetch(link, {
+        }).then(response => response.json());
+        location.href = 'https://global-warming-cs326.herokuapp.com/forum.html'
+    }
 }
