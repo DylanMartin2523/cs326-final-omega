@@ -103,6 +103,6 @@ Sends the user back to the forum page.
 ## Authentication/Authorization
 This site uses mongodb so the password for database access is saved in the mongodb environment variables. When the user creates an account their password is salted and hashed using minicrypt. The hash and salt are then stored in the user data in the database. To authenticate a user when the user logs in the provided password is checked against the hash on the database. The server returns an id that is then saved in the localStorage so the user can be authorized for actions later.  
 ## Division of Labor
-Dylan: All forum pages / backend, login page and authentication.
+Dylan: All forum pages / backend, login page and authentication.  
 Brent: All of the Feedback page for the project including the front and back end.
 ## Conclusion
