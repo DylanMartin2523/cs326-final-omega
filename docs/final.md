@@ -45,7 +45,7 @@ This page has two sections. The first section allows the user to make a new acco
 The feedback page is the main page to let us know what people think of the application
 and is set up in an easy to use format. There are inouts for the each the name, email,
 and the feedback that they want to give. When the button is pressed, it submits the form.
-![](FeedbackSS.PNG)
+![](FeedbackPageSS.PNG)
 
 ## APIs
 #### /createUser
