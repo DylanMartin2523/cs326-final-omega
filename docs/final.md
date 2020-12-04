@@ -45,7 +45,7 @@ This page has two sections. The first section allows the user to make a new acco
 The feedback page is the main page to let us know what people think of the application
 and is set up in an easy to use format. There are inouts for the each the name, email,
 and the feedback that they want to give. When the button is pressed, it submits the form.
-![](feedback-page.PNG)
+![](FeedbackSS.PNG)
 
 ## APIs
 #### /createUser
@@ -82,5 +82,5 @@ Feedback Feedback{ _id: , id: String, //feedback id feed: String //The feedback 
 ## Authentication/Authorization
 This site uses mongodb so the password for database access is saved in the mongodb environment variables. When the user creates an account their password is salted and hashed using minicrypt. The hash and salt are then stored in the user data in the database. To authenticate a user when the user logs in the provided password is checked against the hash on the database. The server returns an id that is then saved in the localStorage so the user can be authorized for actions later.  
 ## Division of Labor
-
+Brent: All of the Feedback page for the project including the front and back end.
 ## Conclusion
