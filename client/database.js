@@ -159,23 +159,6 @@ export async function getFromServer(dbName, collec, callback) {
         console.log(temp);
         return callback(JSON.stringify(temp));
 
-        
-         // Construct a document                                                                                                                                                             
-
-         // Insert a single document, wait for promise so we can read it back
-        // if (name === 'wordScore') {
-        //     const cursor = col.find({});
-        //     if ((await cursor.count()) === 0) {
-        //         console.log("No documents found!");
-        //     }
-        //     await cursor.forEach(pushWord);
-        // } else if (name === 'gameScore') {
-        //     const cursor = col.find({});
-        //     if ((await cursor.count()) === 0) {
-        //         console.log("No documents found!");
-        //     }
-        //     await cursor.forEach(pushGame);
-        // }
 
         } catch (err) {
             console.log(err.stack);
