@@ -1,9 +1,17 @@
 # Omega
 ## Fall 2020
 ## Overview
+Our application Global Warming lets people see the information about global warming and some of
+the impacts that it could make to our society. There is also a forum where people will be able
+to converse about the current state and where the world can go from here. There are accounts that
+let each person post and comment in the forum page. Finally there is a feedback page that can be
+used to help us make sure the website is working and for any suggestions that come our way. The 
+feedback can also let users message us if they are having any other problems with their account
+or other things that may occur.
 
 ## Team Members
 Dylan Martin: DylanMartin2523
+Brent Kohl: bkohl33
 
 ## User Interface
 ### Persistent Side Bar
@@ -30,6 +38,14 @@ This page contains two text boxes and a submit post button. The text boxes recor
 #### login.html
 This page has two sections. The first section allows the user to make a new account as long as the username is unique. This side has two text boxes, one for username and one for password as well as a button that allows the user to create an account. The second section allows the user to sign in providing their credentials are correct. This section has the same layout as the first section except for a 'Login' button instead of a 'Create Comment' button.
 ![](LoginSS.png)
+
+### Feedback:
+#### feedback.html
+The feedback page is the main page to let us know what people think of the application
+and is set up in an easy to use format. There are inouts for the each the name, email,
+and the feedback that they want to give. When the button is pressed, it submits the form.
+![](feedback-page.png)
+
 ## APIs
 #### /createUser
 Attempts to add user. Either responds with 'Username Taken' if the attempted username is taken or returns a userid that the user uses for authentication in other parts of the site.
@@ -47,6 +63,10 @@ Returns database collection of all posts.
 Removes post from database with id of postid.
 #### /forum-comments?id={postid}
 Returns forum post data which includes the post title and body and all comments.
+#### /feedback
+This send the data from the feedback page to the server and logs it.
+There is also a function to let us get the feedback from the server.
+
 
 ## Database
 Users Users { _id: , name: String, // Username of user pass: String, // Password of user salt: String // Salt used for password }
