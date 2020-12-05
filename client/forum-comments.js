@@ -179,8 +179,8 @@ function makeResponseCard(resTo, userName) {
 } 
 
 function sendCommentData(resTo, body) {
-    let link = 'http://localhost:8080/createComment'
-    // let link = 'https://global-warming-cs326.herokuapp.com/createComment'
+    // let link = 'http://localhost:8080/createComment'
+    let link = 'https://global-warming-cs326.herokuapp.com/createComment'
 
     
     let currId = window.localStorage.getItem('currUser');
