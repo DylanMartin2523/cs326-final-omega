@@ -15,6 +15,8 @@ Dylan Martin: DylanMartin2523
 
 Brent Kohl: bkohl33
 
+Robin Lovell: rmlovell
+
 ## User Interface
 ### Persistent Side Bar
 This is the side bar that enables navigation between the different sections of the website. The current section the user is on is bolded.
