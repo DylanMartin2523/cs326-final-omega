@@ -13,11 +13,15 @@ button.addEventListener("click", function() {
 
 
     //let url = 'http://localhost:8080/createComment'
-    let url = 'https://global-warming-cs326.herokuapp.com/createComment'
+    if (id !== null) {
+        let url = 'https://global-warming-cs326.herokuapp.com/createComment'
+        sendData(url, JSON.stringify(toSend));
+        //location.href = 'http://localhost:8080/forum-comments.html?id=' + postId
+        location.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html?id=' + postId
+    } else {
+        document.getElementById('errText').hidden = false;
+    }
 
-    sendData(url, JSON.stringify(toSend));
-    //location.href = 'http://localhost:8080/forum-comments.html?id=' + postId
-    location.href = 'https://global-warming-cs326.herokuapp.com/forum-comments.html?id=' + postId
 })
 
 async function sendData(url, data) {
