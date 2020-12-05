@@ -4,7 +4,7 @@
 Our application Global Warming lets people see the information about global warming and some of
 the impacts that it could make to our society. There is also a forum where people will be able
 to converse about the current state and where the world can go from here. There are accounts that
-let each person post and comment in the forum page. Finally there is a feedback page that can be
+let each person post and comment on the forum page. Finally there is a feedback page that can be
 used to help us make sure the website is working and for any suggestions that come our way. The 
 feedback can also let users message us if they are having any other problems with their account
 or other things that may occur.
