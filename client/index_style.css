@@ -1,29 +1,9 @@
 .nav-link.active {
     font-weight: bold;
 }
-
-.box {
-    width: 30%;
-    height: 200px;
-  }
-
 .bg-img{
   background-image: url('https://global-warming-cs326.herokuapp.com/pexels-nick-bondarev-4905091.jpg');
 }
-
-.post{
-  width: 200px;
-  height: 200px;
-  word-wrap: break-word;     
-  overflow: hidden;         
-  text-overflow: ellipsis;
-  border:3px solid blue;
-  display: block;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  
-}
-
 .effect {
     height: 200px;
     width: 200px;
@@ -38,56 +18,8 @@
     background-color: grey;
     margin: 3px;
 }
-
-.post:hover {
-  transform: scale(1.1);
-}
-
-
-
-.padding-0{
-  padding-right:0;
-  padding-left:0;
-}
-
-.center{
-  text-align: center;
-}
-
-.nav-link.active {
-  font-weight: bold;
-}
-
 .card-text {
   color: white;
-}
-.post {
-  float: right;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-.title {
-  margin: 10px;
-}
-.back {
-  margin: 10px;
-  float: right;
-}
-.comment {
-  float: right;
-  margin: 10px;
-}
-.inner {
-  margin: 10px;
-  border-left: black;
-  border-style: solid;
-  border-top: none;
-  border-bottom: none;
-  border-right: none;
-}
-.main-text {
-  color: black;
-  font-weight: normal;
 }
 .main-title {
   margin: 10px;
@@ -96,7 +28,6 @@
   border: black;
   margin: 10px;
 }
-
 .nav-link{
   text-indent: 30px;
   color: white;
@@ -104,84 +35,63 @@
 .custom-range::-webkit-slider-thumb {
   background: gray;
 }
-
-.custom-range::-moz-range-thumb {
-  background: gray;
-}
-
-.custom-range::-ms-thumb {
-  background: gray;
-}
-
 .custom-range{
   width: 79%;
   margin-left: 35px;
-  
 }
-
 .progress{
   width: 79%;
   margin-left: 35px;
 }
-
 .margin{
   margin: 10px
 }
-
 #main-row, #main-row2{
-  
   margin-bottom: 100px;
   border: 3px;
   width: 80%;
   margin-left: 30px;
 }
-
 #main{
   background-color: rgb(41, 41, 41);
 }
-
 #sidebarMenu{
   background-color: rgb(66, 66, 66);
 }
-
 #navbar{
   background-color: rgb(85, 85, 85);
 }
-
 #navbar2{
   color: white;
   text-indent: 30px;
 }
-
 .black{
   color: black;
 }
-
 .white {
   color : white;
 }
-
 #search{
   background-color: rgb(105, 105, 105);
   border: 0px;
   color: white;
 }
-
 #h3 {
   color: white;
   text-indent: 25px;
 }
-
- #year-ghg{
+#year-ghg{
    color: white;
    margin-left: 30px;
- }
-
- #temp-label{
+}
+#temp-label{
    color: white;
    margin-left: 30px;
- }
- 
- #row-label{
+}
+#row-label{
    margin: 30px;
- }
+}
+#References{
+  margin-left:30px;
+  margin-bottom: 30px;
+}

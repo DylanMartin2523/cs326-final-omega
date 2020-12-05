@@ -1,50 +1,15 @@
 const range = document.getElementById('deg-range');
-    const degProgress = document.getElementById('deg-progress');
-    let degProgressColor = 'bg-warning';
-    let degProgressText = "grey";
-    degProgress.classList.add(degProgressColor);
-    let temp = 1;
-    let ghg = 0;
-    let mainRow = document.getElementById('main-row');
-    let mainRow2 = document.getElementById('main-row2');
-    
+const degProgress = document.getElementById('deg-progress');
+let degProgressColor = 'bg-warning';
+let degProgressText = "grey";
+degProgress.classList.add(degProgressColor);
+let temp = 1;
+let ghg = 0;
+let mainRow = document.getElementById('main-row');
+let mainRow2 = document.getElementById('main-row2');
 function load() {
-    
-    
-    
-
-    
-
-    
-    
- 
     range.addEventListener('mousemove', slide);
     range.addEventListener('mousedown', slide);
-    
-
-    
-
-
-    
-
-    /* <div class = "card main col-lg effect">
-                   <div class = "card-body">
-                   <h5 class = "card-title">
-                     What the world will be like with 2°C warming:
-                   </h5>
-                   <p class = "card-text">
-                     "The world will be a lot drier, which will impact economies, agriculture, infrastructure, and weather
-                   patterns. Rising temperatures will damage ecosystems and species that cannot adapt, including those in coral
-                   reefs and Arctic areas. Low-lying coastal regions and small islands worldwide are at risk of disappearing as
-                   sea levels rise due to the Greenland ice sheet and Arctic ice melting at continuously faster rates. 2 degrees
-                   celsius could determine the existence of whole nations." (Popular Science) [3]
-                   "Substantial species extinctions, large risks to global and regional food security," and an inability to work
-                   outside—and live—in some areas of the world." (Popular Science) [3]
-                   </p> 
-                 </div>
-                 </div> */
-
-
     function renderDisplay() {
         for (let i = 0; i < 2; i++) {
             let row = document.createElement("div");
@@ -55,16 +20,9 @@ function load() {
         }
     }
     renderDisplay();
-
-    
-
-
-
 }
-
 //synchronizes the position of range thumb with degProgress bar
 function slide() {
-    
 
     function roundTemp() {
         return Math.round(temp * 10) / 10;
@@ -90,7 +48,6 @@ function slide() {
 
         }
     }
-
     globalGHGs();
     async function getEffects() {
         let effects;
@@ -124,10 +81,8 @@ function slide() {
             }
             document.getElementById(`row${Math.floor(i / 4)}`).appendChild(col);
         }
-
     }
     getEffects();
-
     if (roundTemp() < 1) {
         degProgress.classList.remove(degProgressColor);
         degProgress.classList.remove(degProgressText);
@@ -143,12 +98,6 @@ function slide() {
         degProgressText = 'black';
         degProgress.classList.add(degProgressColor);
         degProgress.classList.add(degProgressText);
-        if (range.value <= 2021 && range.value >= 2019) {
-            
-                
-            
-          
-        }
     }
     else {
         degProgress.classList.remove(degProgressColor);
@@ -158,18 +107,14 @@ function slide() {
         degProgress.classList.add(degProgressColor);
         degProgress.classList.add(degProgressText);
     }
-
     if (range.value >= 2020) {
         document.getElementById('temp-label').innerText = 'Projected °C warming relative to pre-industrial levels [6]';
     }
     else {
         document.getElementById('temp-label').innerText = 'Historical °C warming since relative to 20th century average [1]';
-
     }
 }
-
 async function getPosts() {
-
     function renderRows() {
         if (document.getElementById('row2')) {
             document.getElementById('row2').innerHTML = '';
@@ -177,7 +122,6 @@ async function getPosts() {
         if (document.getElementById('row3')) {
             document.getElementById('row3').innerHTML = '';
         }
-
         for (let i = 2; i < 4; i++) {
             let row = document.createElement("div");
             row.classList.add("row");
@@ -187,12 +131,10 @@ async function getPosts() {
         }
     }
     renderRows();
-
     document.getElementById('row2').innerHTML = '';
     document.getElementById('row3').innerHTML = '';
     let res = await fetch('https://global-warming-cs326.herokuapp.com/forum', {
     }).then(response => response.json());
-
     for (let i = 0; i < 8; i++) {
         if (res.length === 0) {
             break;
@@ -210,13 +152,11 @@ async function getPosts() {
         text.innerText = res[x].body;
         col.appendChild(text);
         document.getElementById(`row${Math.floor(i / 4) + 2}`).appendChild(col);
-
         let id = res[x]._id;
         col.addEventListener("click", () => {
             location.replace('https://global-warming-cs326.herokuapp.com/forum-comments.html?id=' + id);
         });
         res.splice(x, 1);
-
     }
 }
 window.addEventListener('load', getPosts);
