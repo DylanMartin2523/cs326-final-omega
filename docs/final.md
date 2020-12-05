@@ -70,17 +70,39 @@ There is also a function to let us get the feedback from the server.
 
 
 ## Database
-Users Users { _id: , name: String, // Username of user pass: String, // Password of user salt: String // Salt used for password }
+Users Users { _id: , name: String, // Username of user 
+            pass: String, // Password of user 
+            salt: String // Salt used for password }
 
-Posts Comments { _id: , id: String, // Commenter UserID body: String, // Body of comment resTo: String, // Comment id of parent comment '0' if no parent postId: String // id of the post }
+Posts Comments { _id: , id: String, // Commenter UserID 
+                body: String, // Body of comment 
+                resTo: String, // Comment id of parent comment '0' if no parent 
+                postId: String // id of the post }
 
-Posts Posts { _id: , userid: String, // Userid of poster body: String, // Body of post title: String // title of post }
+Posts Posts { _id: , userid: String, // Userid of poster 
+            body: String, // Body of post title: String // title of post }
 
-Feedback Feedback{ _id: , id: String, //feedback id feed: String //The feedback body }
+Feedback Feedback{ _id: , id: String, //feedback id 
+                  feed: String //The feedback body }
+                  
 ## URL Routes/Mappings
+
+#### /forum.html -> /createPost.html:
+This route allows the user to create a post to be shown on the main forum page.
+#### /createPost.html -> /forum.html:
+This route sends the user back to the forum pager after creating a post.
+#### /forum.html -> /forum-comments.html?id={forumPostId}:
+This route sends the user to a specific forum post.
+#### /forum-comments.html?id={forumPostId} -> /createComment.html
+This route allows the user to create a top level comment on the corresponding post.
+#### /createComment.html -> /forum-comments.html?id={forumPostId}:
+Sends user back to forum-comments page after creating comment.
+#### /forum-comments.html?id={forumPostId} -> /forum.html
+Sends the user back to the forum page.
 
 ## Authentication/Authorization
 This site uses mongodb so the password for database access is saved in the mongodb environment variables. When the user creates an account their password is salted and hashed using minicrypt. The hash and salt are then stored in the user data in the database. To authenticate a user when the user logs in the provided password is checked against the hash on the database. The server returns an id that is then saved in the localStorage so the user can be authorized for actions later.  
 ## Division of Labor
+Dylan: All forum pages / backend, login page and authentication.  
 Brent: All of the Feedback page for the project including the front and back end.
 ## Conclusion
