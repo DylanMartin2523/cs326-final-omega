@@ -1,7 +1,8 @@
 # Omega
+## Climate Change Information Hub
 ## Fall 2020
 ## Overview
-Our application Global Warming lets people see the information about global warming and some of
+Our application Climate Change Information Hub lets people see the information about global warming and some of
 the impacts that it could make to our society. There is also a forum where people will be able
 to converse about the current state and where the world can go from here. There are accounts that
 let each person post and comment on the forum page. Finally there is a feedback page that can be
