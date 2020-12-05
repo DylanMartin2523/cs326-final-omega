@@ -83,7 +83,7 @@ function slide() {
             .then(response => response.json());
         ghg = parseFloat(globalGHGs[range.value]);
         if (!isNaN(ghg)) {
-            document.getElementById('year-ghg').innerText = `Year: ${range.value}\nGHGs: ${ghg} ppm`;
+            document.getElementById('year-ghg').innerText = `Year: ${range.value}\nGHGs: ${ghg} ppm [2]`;
         }
         else {
             document.getElementById('year-ghg').innerText = `Year: ${range.value}\n\n`;
@@ -160,10 +160,10 @@ function slide() {
     }
 
     if (range.value >= 2020) {
-        document.getElementById('temp-label').innerText = 'Projected °C warming relative to pre-industrial levels';
+        document.getElementById('temp-label').innerText = 'Projected °C warming relative to pre-industrial levels [6]';
     }
     else {
-        document.getElementById('temp-label').innerText = 'Historical °C warming since relative to 20th century average';
+        document.getElementById('temp-label').innerText = 'Historical °C warming since relative to 20th century average [1]';
 
     }
 }
